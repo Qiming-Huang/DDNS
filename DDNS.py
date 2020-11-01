@@ -3,14 +3,14 @@ import smtplib
 from email.mime.text import MIMEText
 import time
 
-current_ip = '49.72.58.66'
-mail_host = 'smtp.163.com'
-mail_user = '13324811901'
-mail_pass = 'ZGHKSEWBQSMUNGBS'
+current_ip = 'xxx' # your current ip address
+mail_host = 'smtp.xxx.com' # your mail server which support smtp
+mail_user = 'xxx'
+mail_pass = 'xxxx' # secret key provided by your email server, it's not your email password
 
-sender = '13324811901@163.com'
-receivers = ['727534525@qq.com']
-url = 'http://cip.cc'
+sender = 'xxx'
+receivers = ['xxx']
+url = 'http://cip.cc' # the website could return your public ip address
 cot = 0
 
 from requests.exceptions import ConnectionError
@@ -18,9 +18,9 @@ from requests.exceptions import ConnectionError
 def sleep_time(hour, min, sec):
     return hour*3600 + min*60 + sec
 
-wait_time = sleep_time(0,30,0)
+wait_time = sleep_time(0,30,0) # define the sleeping time
 
-while True:
+while True: # get the ip address
     session = HTMLSession()
     try:
         r = session.get(url)
@@ -35,7 +35,7 @@ while True:
         continue
     if ip_address == current_ip:
         print('ip address did not change! times:' + str(cot))
-    else:
+    else: # if ip address changed, send email
         current_ip = ip_address
         message = MIMEText(current_ip, 'plain', 'utf-8')
         message['Subject'] = 'ip address'
