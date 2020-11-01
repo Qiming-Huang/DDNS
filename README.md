@@ -1,4 +1,4 @@
-# DDNS
+# [DDNS](https://github.com/Thomaszz4/DDNS/blob/main/DDNS.py)
 Receive the new IP of your server which changed from time to time
 
 * the idea is showed as below:
